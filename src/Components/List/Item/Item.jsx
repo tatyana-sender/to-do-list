@@ -3,11 +3,15 @@ import PropTypes from "prop-types";
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import "./styles.scss";
 
-const Item = ({date, title}) => {
+const Item = ({date, title, id}) => {
+    const deleteTask = () => {
+        console.log('123');
+        localStorage.removeItem(`${id}`);
+    }
 
     return (
         <>
-            <div className="c-item">
+            <div className="c-item" id={id}>
                 <div className="c-item__status"><input type="checkbox" /></div>
                 <div className="c-item__info">
                     <div className="c-item__date">{date}</div>
@@ -15,7 +19,7 @@ const Item = ({date, title}) => {
                 </div>
                 <div className="c-item__actions">
                     <button className="c-item__button"><FaEdit /></button>
-                    <button className="c-item__button"><FaTrash /></button>
+                    <button className="c-item__button" onClick={deleteTask}><FaTrash /></button>
                 </div>
             </div>
         </>

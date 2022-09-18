@@ -25,7 +25,7 @@ const List = () => {
             <div className="c-list">
                 {tasks.map((item, index) => {
                     return (
-                        <Item key={item?.key ?? index} date={item?.data?.date} title={item?.data?.title} />
+                        <Item key={item?.key ?? index} id={item?.key} date={item?.data?.date} title={item?.data?.title} />
                     )
                 })}
             </div>
