@@ -1,21 +1,23 @@
-import React from 'react';
+import React from "react";
 import PropTypes from "prop-types";
+import Item from "./Item/Item";
+import "./styles.scss";
 
 
-const Header = () => {
+
+const List = () => {
 
     return (
         <>
-            <div className="c-header">
-                <h1 className="c-header__title">To do list</h1>
-                <button className="c-header__button">Add task</button>
+            <div className="c-list">
+                <Item />
             </div>
         </>
     );
 };
 
-Header.propTypes = {
+List.propTypes = {
     addTask: PropTypes.bool,
 };
 
-export default Header;
+export default List;

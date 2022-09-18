@@ -1,3 +1,25 @@
-.c-header {
+.c-item {
+  display: flex;
+  align-items: center;
 
+  &__info {
+    padding-left: 2rem;
+    font-size: 2rem;
+  }
+
+  &__date {
+    font-size: 1.5rem;
+  }
+
+  &__actions {
+    margin: 0 0 0 auto;
+  }
+
+  &__button {
+    font-size: 2rem;
+    margin: 0 2rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
 }

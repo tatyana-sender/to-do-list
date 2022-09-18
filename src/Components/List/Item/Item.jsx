@@ -1,21 +1,29 @@
-import React from 'react';
+import React from "react";
 import PropTypes from "prop-types";
+import { FaEdit, FaTrash } from 'react-icons/fa';
+import "./styles.scss";
 
-
-const List = () => {
+const Item = () => {
 
     return (
         <>
-            <div className="c-list">
-                <h1 className="c-header__title">To do list</h1>
-                <button className="c-header__button">Add task</button>
+            <div className="c-item">
+                <div className="c-item__status"><input type="checkbox" /></div>
+                <div className="c-item__info">
+                    <div className="c-item__date">26.08.2019</div>
+                    <div className="c-item__title">First task</div>
+                </div>
+                <div className="c-item__actions">
+                    <button className="c-item__button"><FaEdit /></button>
+                    <button className="c-item__button"><FaTrash /></button>
+                </div>
             </div>
         </>
     );
 };
 
-List.propTypes = {
+Item.propTypes = {
     addTask: PropTypes.bool,
 };
 
-export default List;
+export default Item;
