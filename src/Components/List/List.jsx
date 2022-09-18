@@ -7,10 +7,27 @@ import "./styles.scss";
 
 const List = () => {
 
+    const counter = localStorage.getItem("counter");
+    const tasks =[];
+
+    for (let i = 0; i < counter; i++) {
+        if(localStorage.getItem(`data_${i}`)) {
+            const data = {
+                key: `data_${i}`,
+                data: JSON.parse(localStorage.getItem(`data_${i}`)),
+            }
+            tasks.push(data);
+        }
+    }
+
     return (
         <>
             <div className="c-list">
-                <Item />
+                {tasks.map((item, index) => {
+                    return (
+                        <Item key={item?.key ?? index} date={item?.data?.date} title={item?.data?.title} />
+                    )
+                })}
             </div>
         </>
     );

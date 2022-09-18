@@ -3,15 +3,15 @@ import PropTypes from "prop-types";
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import "./styles.scss";
 
-const Item = () => {
+const Item = ({date, title}) => {
 
     return (
         <>
             <div className="c-item">
                 <div className="c-item__status"><input type="checkbox" /></div>
                 <div className="c-item__info">
-                    <div className="c-item__date">26.08.2019</div>
-                    <div className="c-item__title">First task</div>
+                    <div className="c-item__date">{date}</div>
+                    <div className="c-item__title">{title}</div>
                 </div>
                 <div className="c-item__actions">
                     <button className="c-item__button"><FaEdit /></button>
