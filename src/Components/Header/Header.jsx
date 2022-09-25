@@ -18,6 +18,7 @@ const Header = () => {
         const data = {
             title: title,
             date: new Date().toLocaleString(),
+            checked: false
         };
         localStorage.setItem(`data_${counter}`, JSON.stringify(data));
     }, [title]);

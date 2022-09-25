@@ -8,6 +8,10 @@
     font-size: 2rem;
   }
 
+  &__status:checked + .c-item__info .c-item__title {
+    text-decoration: line-through;
+  }
+
   &__date {
     font-size: 1.5rem;
   }
