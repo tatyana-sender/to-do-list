@@ -1,0 +1,30 @@
+.c-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  &__info {
+    padding-left: 2rem;
+    font-size: 2rem;
+  }
+
+  &__status:checked + .c-item__info .c-item__title {
+    text-decoration: line-through;
+  }
+
+  &__date {
+    font-size: 1.5rem;
+  }
+
+  &__actions {
+    margin: 0 0 0 auto;
+  }
+
+  &__button {
+    font-size: 2rem;
+    margin: 0 2rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+}

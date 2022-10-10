@@ -4,7 +4,8 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 import "./styles.scss";
 import Popup from "../../Popup/Popup";
 
-const Item = ({date, titleTask, id, checked}) => {
+const Item = (props) => {
+    const {date, titleTask, id, checked, editTask, checkTask, deleteTask} = props;
     const [isOpen, setIsOpen] = useState(false);
     const togglePopup = () => {
         setIsOpen(!isOpen);
@@ -16,30 +17,28 @@ const Item = ({date, titleTask, id, checked}) => {
         return initialValue || "";
     });
 
-    useEffect(() => {
+    const [isEditing, setEditing] = useState(false);
+
+    /*useEffect(() => {
         const data = {
             title: title,
             date: new Date().toLocaleString(),
             checked: false
         };
         localStorage.setItem(`data_${id}`, JSON.stringify(data));
-    }, [title]);
-
-    const deleteTask = () => {
-        localStorage.removeItem(`${id}`);
-    }
+    }, [title]);*/
 
     return (
         <>
             <div className="c-item" id={id}>
-                <input type="checkbox" className="c-item__status" defaultChecked={checked} />
+                <input type="checkbox" className="c-item__status" defaultChecked={checked} onChange={() => checkTask(id)} />
                 <div className="c-item__info">
                     <div className="c-item__date">{date}</div>
                     <div className="c-item__title">{titleTask}</div>
                 </div>
                 <div className="c-item__actions">
                     <button className="c-item__button" onClick={togglePopup}><FaEdit /></button>
-                    <button className="c-item__button" onClick={deleteTask}><FaTrash /></button>
+                    <button className="c-item__button" onClick={() => deleteTask(id)}><FaTrash /></button>
                 </div>
             </div>
             {isOpen && <Popup
@@ -51,7 +50,7 @@ const Item = ({date, titleTask, id, checked}) => {
                             onChange={(e) => setTitle(e.target.value)}
                             placeholder="Task"
                         />
-                        <button type="submit">Edit task</button>
+                        <button type="submit" onClick={() => editTask(id, title)}>Edit task</button>
                     </form>
                 }
                 handleClose={togglePopup}

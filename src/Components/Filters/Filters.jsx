@@ -3,10 +3,9 @@ import PropTypes from "prop-types";
 import Item from "./Item/Item";
 import "./styles.scss";
 
-
-
-const List = (props) => {
-    console.log(props.tasks, 'tsas')
+const Filters = (props) => {
+    const tasks = props.tasks;
+    //console.log(props.tasks, 'tsas')
 
     //const [tasks, setTasks] = useState(props.tasks);
 
@@ -35,30 +34,15 @@ const List = (props) => {
     return (
         <>
             <div className="c-filter">
-
-            </div>
-            <div className="c-list">
-                {props.tasks.map((item, index) => {
-                    return (
-                        <Item
-                            key={item?.id ?? index}
-                            id={item?.id}
-                            date={item?.data?.date}
-                            titleTask={item?.data?.title}
-                            checked={item?.data?.checked}
-                            checkTask={props.checkTask}
-                            editTask={props.editTask}
-                            deleteTask={props.deleteTask}
-                        />
-                    )
-                })}
+                <Item name="title" />
+                <Item name="date" />
             </div>
         </>
     );
-}
-
-List.propTypes = {
-    addTask: PropTypes.bool,
 };
 
-export default List;
+Filters.propTypes = {
+    tasks: PropTypes.array,
+};
+
+export default Filters;

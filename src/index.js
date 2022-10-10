@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {nanoid} from "nanoid";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const DATA = [];
+
+for(let key in localStorage) {
+    if (!localStorage.hasOwnProperty(key)) {
+        continue;
+    }
+    DATA.push({id: key, data: JSON.parse(localStorage.getItem(key))})
+}
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App tasks={DATA} />
   </React.StrictMode>
 );
 
